@@ -14,6 +14,9 @@
 ```
 yarn: yarn add @vue/test-utils@next --dev
 npm: npm install @vue/test-utils@next --save-dev
+
+npm run test:unit
+npm run test:unit -t NameOfFileTest
 ```
 
 - https://v3.vuejs.org/guide/testing.html#introduction

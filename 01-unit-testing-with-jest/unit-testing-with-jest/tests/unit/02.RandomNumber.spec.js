@@ -32,7 +32,7 @@ describe('RandomNumber', () => {
         max: 200
       }
     })
-    wrapper.find('.btn1').trigger('click')
+    wrapper.find('.btn2').trigger('click')
 
     // We need use async to wait the wrapper click button
     await wrapper.vm.$nextTick()
