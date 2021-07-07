@@ -51,14 +51,14 @@ module.exports = {
 ```
 
 ### `Step common`
-- 1. Create a test suite (a block of test) using Jest describe method <br>
+- `1.` Create a test suite (a block of test) using Jest describe method <br>
 ```
 describe('NameSpaceOfComponent', () => {
   // Put test here
 })
 ```
 
-- 2. Setup your test function <br>
+- `2.` Setup your test function <br>
 ```
 describe('NameSpaceOfComponent', () => {
   
@@ -74,7 +74,7 @@ describe('NameSpaceOfComponent', () => {
 })
 ```
 
-- 3. Mount the component with `vue-test-utils` <br>
+- `3.` Mount the component with `vue-test-utils` <br>
 - https://github.com/vuejs/vue-test-utils-next/#mounting-options <br>
 ```
 import NameSpaceOfComponent from '@/components/NameSpaceOfComponent'
@@ -88,19 +88,13 @@ describe('NameSpaceOfComponent', () => {
   })
 ```
 
-- 4. Use many function to describe your ideal test <br>
+- `4.` Use many function to describe your ideal test <br>
 - https://github.com/vuejs/vue-test-utils-next/#wrapper-api-mount <br>
 
-- 5. Describe your result you want <br>
+- `5.` Describe your result you want <br>
 
 ```
 expect(wrapper.find('button').isVisible()).toBe(false)
 ```
 
 
-
-
-
-### `Automation test`
-Công nghệ đổi thay, giờ đây chúng ta sử dụng công nghệ đám mây, tất cả mọi thử đều được up lên máy chủ ảo.
-Setup Docker, Kubernetes , CI/CD , Jenkin

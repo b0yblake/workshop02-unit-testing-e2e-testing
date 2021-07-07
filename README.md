@@ -1,4 +1,4 @@
-# workshop02-unit-testing-e2e-testing
+<h1 align="center">🎯 Testing - let yourself more confidence </h1>
 A simple workshop, guiding unit test(Jest &amp; mocha) &amp; e2e testing(Cypress) real project 🔥
 
 ### `Các cấp độ`
