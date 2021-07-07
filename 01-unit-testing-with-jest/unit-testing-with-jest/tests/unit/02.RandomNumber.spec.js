@@ -24,6 +24,22 @@ describe('RandomNumber', () => {
     expect(num).toBeGreaterThan(1)
     expect(num).toBeLessThanOrEqual(10)
   })
+
+  test('When clicked button 2, randomNumbershould change and in range: 100 < randomNumber <= 200', async () => {
+    const wrapper = mount(RandomNumber, {
+      propsData: {
+        min: 100,
+        max: 200
+      }
+    })
+    wrapper.find('.btn1').trigger('click')
+
+    // We need use async to wait the wrapper click button
+    await wrapper.vm.$nextTick()
+    const num = parseInt(wrapper.find('span').element.textContent)
+    expect(num).toBeGreaterThan(100)
+    expect(num).toBeLessThanOrEqual(200)
+  })
 })
 
 

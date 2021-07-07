@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import { ref } from 'vue'
 export default {
   name: "RandomNumber",
   props: {
@@ -19,13 +20,16 @@ export default {
       default: 10,
     }
   },
-  data: () => ({
-    randomNumber: 0,
-  }),
+  // data: () => ({
+  //   randomNumber: 0,
+  // }),
   setup(props, context) {
-    const getRandomNumber = () => randomNumber = Math.floor(Math.random() * (props.max - props.min + 1)) + props.min;
+
+    const randomNumber = ref(0)
+    const getRandomNumber = () => randomNumber.value = Math.floor(Math.random() * (props.max - props.min + 1)) + props.min;
     return {
-      getRandomNumber
+      randomNumber,
+      getRandomNumber,
     }
   }
 }
