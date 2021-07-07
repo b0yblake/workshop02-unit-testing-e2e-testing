@@ -6,17 +6,17 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+// import { ref } from 'vue'
 export default {
   name: "AppHeader",
-  // data: () => ({
-  //   loggedIn: false
-  // })
-  setup() {
-    const loggedIn = ref(false)
-    return {
-      loggedIn
-    }
-  }
+  data: () => ({
+    loggedIn: false
+  })
+  // setup() {
+  //   const loggedIn = ref(false)
+  //   return {
+  //     loggedIn
+  //   }
+  // }
 }
 </script>
