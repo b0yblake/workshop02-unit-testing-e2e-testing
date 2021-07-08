@@ -12,7 +12,8 @@ export default {
   setup(props, context) {
     const name = ref(null)
     const onSubmit = () => {
-      context.emit('name',name)
+      // context.emit('name', { name: name.value })
+      context.emit('name', name.value)
     }
     return {
       onSubmit,

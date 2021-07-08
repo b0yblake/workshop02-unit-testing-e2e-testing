@@ -20,7 +20,7 @@ npm run test:unit -t NameOfFileTest
 ```
 
 - https://v3.vuejs.org/guide/testing.html#introduction
-- https://next.vue-test-utils.vuejs.org/guide/
+- https://next.vue-test-utils.vuejs.org/api/
 
 - Unit test thường được làm ở phía developer, khi kết thúc 1 sprint/components chúng ta muốn kiểm thử các thành phần đó có hoạt động trơn tru <br> nhận giá trị `input/output` 1 cách chính xác và đúng theo ý developer mong muốn.
 - các thành phần thường có của `input/output` <br>

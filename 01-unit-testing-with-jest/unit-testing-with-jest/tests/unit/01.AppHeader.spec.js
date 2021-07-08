@@ -15,7 +15,8 @@ describe('AppHeader', () => {
 
   test('If user logged in: ', async () => {
     const wrapper = mount(AppHeader)
-    wrapper.setData({ loggedIn: true })
+    await wrapper.setData({ loggedIn: true })
+    // wrapper.findComponent({ ref: 'loggedIn' }).setValue(true)
 
     // We need use async to wait the wrapper set the state loggedIn
     await wrapper.vm.$nextTick()
