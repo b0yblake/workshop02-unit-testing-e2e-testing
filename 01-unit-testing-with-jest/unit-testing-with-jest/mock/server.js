@@ -17,7 +17,7 @@ export function makeServer({ environment = "development" } = {}) {
 
     routes() {
       this.urlPrefix = "http://localhost:3001"
-      this.namespace = "api"
+      // this.namespace = "api"
       this.timing = 1500
 
       this.get("/message", (schema) => schema.db.message)

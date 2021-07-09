@@ -5,20 +5,20 @@
   </form>
 </template>
 <script>
-import {ref} from 'vue'
+import { ref } from "vue"
 export default {
   name: "LoginForm",
-  emits: ['name'],
+  emits: ["name"],
   setup(props, context) {
     const name = ref(null)
     const onSubmit = () => {
       // context.emit('name', { name: name.value })
-      context.emit('name', name.value)
+      context.emit("name", name.value)
     }
     return {
       onSubmit,
-      name
+      name,
     }
-  }
+  },
 }
 </script>

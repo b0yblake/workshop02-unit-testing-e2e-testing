@@ -17,11 +17,32 @@ A simple workshop, guiding unit test(Jest &amp; mocha) &amp; e2e testing(Cypress
 |Cơ sở tạo Test Cases | Kiểm tra hộp đen được bắt đầu dựa trên tài liệu yêu cầu kỹ thuật | Kiểm tra hộp trắng được bắt đầu dựa trên các tài liệu thiết kế chi tiết|
 
 
-- Whitebox test: Manual test & Automation test
+- Whitebox & Blackbox: Manual test & Automation test
+
+`Manual test` là cách thông thường - tester - thực hiện thao tác bằng tay để test trực tiếp trên ứng dụng
+`Automation test` là cách test tự động - developer/QA - viết sẵn các kịp bản phù hợp với từng đối tượng test
+
+`TÓM LẠI`
+- Manual testing sẽ giúp có cái nhìn trực quan và chính xác về ứng dụng (e2e test/ user test)
+- Automation testing giúp tìm thấy nhiều lỗi hơn
+- Manual testing cho kết quả ít tin cậy hơn vì con người có thể mắc lỗi
+- Automation testing tiêu tốn chi phí cho các tool kiểm thử, làm tăng chi phí của dự án
+- Manual testing tiêu tốn thời gian và nguồn nhân lực
+- Automation testing nhanh hơn và hiệu quả hơn so với manual testing
 
 | Loại   | Manual test                                          | Automation test                                           |
 | -------| :---------------------------------------------------------| :---------------------------------------------------------|
-|Ưu điểm |                    |                        |
+| Định nghĩa | Thực hiện kiểm thử hoàn toàn thủ công không có sự trợ giúp của bất kỳ công cụ tự động nào, được thực hiện bời tester | Automation testing sử dụng các tool để thực hiện các trường hợp kiểm thử |
+| Programming knowledge | Không cần có kiến thức lập trình vẫn có thể thực hiện | Yêu cầu phải có kiến thức lập trình |
+| Thời gian xử lý | Manual testing tốn nhiều thời gian và nguồn nhân lực | Thời gian kiểm thử rút ngắn hơn so với manual testing |
+| Exploratory Testing  | (Là 1 kiểu test không cần lên các testcase or kịch bản sẵn có) Có thể kiểm thử khám phá trong manual testing | Không cho phép kiểm thử khám phá |
+| Độ tin cậy | Kết quả kiểm thử không đáng tin cậy vì có khả năng xảy ra lỗi của con người | Kết quả kiểm thử đáng tin cậy vì nó được thực hiện bằng các tool và các kịch bản |
+| UI change | Những thay đổi nhỏ thư thay đổi về id, class sẽ không cản trở quá trình kiểm thử | Chỉ là thay đổi nhỏ trong giao diện AUT nhưng các kịch bản kiểm thử tự động cần phải sửa đổi để hoạt động đúng như mong đợi |
+| Investment | Cần đầu tư về nguồn nhân lực | Cần phải đầu tư cho các công cụ kiểm thử |
+| Test Report Visibility | Kết quả được lưu lại trong excel hoặc word | Tất cả các bên liên quan có thể đăng nhập vào hệ thống xem kết quả đã kiểm thử |
+| Performance Testing | Không khả thi trong kiểm thử Load testing, stress testing | Được thực hiện trong kiểm thử Load testing, stress testing |
+| Parallel Execution | Kiểm thử song song trên các nền tảng khác nhau sẽ phải tăng nguồn nhân lực | Có thể thực hiện song song trên cấc nền tảng vận hành khác nhau và giảm thời gian thực hiện kiểm thử |
+| Ideal approach | Manual testing hữu ích khi chạy bộ test case một hoặc hai lần | Automation testing rất hữu ích khi thường xuyên thực hiện chạy lại một kịch bản nhiều nhiều lần |
 
 
 - Testing level
