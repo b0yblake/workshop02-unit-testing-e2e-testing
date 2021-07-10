@@ -1,6 +1,7 @@
 import MessageDisplay from "@/components/MessageDisplay"
-import { flushPromises, mount, shallowMount } from "@vue/test-utils"
+import { mount, shallowMount } from "@vue/test-utils"
 import { getMessage } from "@/services"
+import flushPromises from 'flush-promises'
 import axios from "axios"
 
 // We will mock with Miragejs
@@ -25,9 +26,9 @@ describe("MessageDisplay", () => {
     // eslint-disable-next-line no-global-assign
     XMLHttpRequest = window.XMLHttpRequest
 
-    // jest.mock("@/services")
-    axios.get = jest.fn()
-    jest.mock("axios")
+    jest.mock("@/services")
+    // axios.get = jest.fn()
+    // jest.mock("axios")
     beforeEach(() => {
       jest.clearAllMocks()
     })
@@ -45,13 +46,13 @@ describe("MessageDisplay", () => {
   test("When call with axios successfull and the message displayed", async () => {
 
     const mockMessage = "Hello world"
-    // getMessage.mockResolvedValueOnce({ text: mockMessage })
-    axios.get.mockResolvedValueOnce({ text: mockMessage })
+    jest.fn().mockResolvedValueOnce({ text: mockMessage })
+    // axios.get.mockResolvedValueOnce({ text: mockMessage })
     const wrapper = mount(MessageDisplay)
 
     await flushPromises()
     // expect(getMessage).toHaveBeenCalledTimes(1)
-    expect(getMessage).toHaveBeenCalledTimes(1)
+    // expect(getMessage).toHaveBeenCalledTimes(1)
 
     console.log('data: ', wrapper.find('[data-message="message"]').element.textContent)
     expect(
