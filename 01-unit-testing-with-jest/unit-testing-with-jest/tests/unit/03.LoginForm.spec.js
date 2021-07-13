@@ -14,30 +14,30 @@ OR All. we can simulate all case in (5.)
 
 describe("LoginForm", () => {
   test("Form has the input", () => {
-    const wrapper = mount(LoginForm)
+    const wrapper = shallowMount(LoginForm)
     expect(wrapper.find('input[type="text"]').isVisible()).toBe(true)
   })
 
   test("Can set an input value", () => {
-    const wrapper = mount(LoginForm)
+    const wrapper = shallowMount(LoginForm)
     wrapper.find('input[type="text"]').setValue("Adam")
     expect(wrapper.find('input[type="text"]').element.value).toEqual("Adam")
   })
 
   test("Simulate form submission", () => {
-    const wrapper = mount(LoginForm)
+    const wrapper = shallowMount(LoginForm)
     expect(wrapper.trigger("submit")).toBeTruthy()
   })
 
   test("Make sure event has been emitted", () => {
-    const wrapper = mount(LoginForm)
+    const wrapper = shallowMount(LoginForm)
     wrapper.find('input[type="text"]').setValue("Adam")
     wrapper.trigger("submit")
     expect(wrapper.emitted("name")).toHaveLength(1)
   })
 
   test("Make sure payload(data emit - not key emit) is correct", () => {
-    const wrapper = mount(LoginForm)
+    const wrapper = shallowMount(LoginForm)
     wrapper.find('input[type="text"]').setValue("Adam")
     wrapper.trigger("submit")
 

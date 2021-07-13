@@ -1,5 +1,5 @@
 import MessageDisplay from "@/components/MessageDisplay"
-import { mount, shallowMount } from "@vue/test-utils"
+import { mount, shallowMount, createLocalVue } from "@vue/test-utils"
 import { getMessage } from "@/services"
 import flushPromises from 'flush-promises'
 import axios from "axios"
@@ -10,14 +10,20 @@ import { makeServer } from "../../mock/server"
 
 /*
 We have some conditions to test:
+0. onMount vue axios call success
 1. When call with axios successfull and the message displayed
 2. When call with axios unsuccessfull and the error display
 */
+
+
+
 
 describe("MessageDisplay", () => {
   //Create server Miragejs
   let server
   let originalXMLHttpRequest = XMLHttpRequest
+
+  
 
   beforeAll(() => {
     server = makeServer()
@@ -26,9 +32,18 @@ describe("MessageDisplay", () => {
     // eslint-disable-next-line no-global-assign
     XMLHttpRequest = window.XMLHttpRequest
 
-    jest.mock("@/services")
+    // jest.mock("@/services")
     // axios.get = jest.fn()
     // jest.mock("axios")
+
+    const fakeMessage = {
+      "text": "Hello world"
+    }
+
+    jest.mock('axios', () => ({
+      get: jest.fn(() => fakeMessage)
+    }))
+
     beforeEach(() => {
       jest.clearAllMocks()
     })
@@ -43,20 +58,44 @@ describe("MessageDisplay", () => {
     XMLHttpRequest = originalXMLHttpRequest
   })
 
-  test("When call with axios successfull and the message displayed", async () => {
+  test("onMount vue axios call success", async () => {
+
+    // const mockFn = jest.fn()
+
+    const wrapper = shallowMount(MessageDisplay)
 
     const mockMessage = "Hello world"
-    jest.fn().mockResolvedValueOnce({ text: mockMessage })
+    axios.get.mockResolvedValueOnce({ text: mockMessage })
     // axios.get.mockResolvedValueOnce({ text: mockMessage })
-    const wrapper = mount(MessageDisplay)
+    
 
     await flushPromises()
     // expect(getMessage).toHaveBeenCalledTimes(1)
-    // expect(getMessage).toHaveBeenCalledTimes(1)
+    // expect(mockFn).toBeCalled()
+    expect(axios.get).toHaveBeenCalledTimes(1)
 
     console.log('data: ', wrapper.find('[data-message="message"]').element.textContent)
     expect(
       wrapper.find('[data-message="message"]').element.textContent
     ).toEqual(mockMessage)
   })
+
+  // test("When call with axios successfull and the message displayed", async () => {
+
+  //   const mockFn = jest.fn()
+  //   const mockMessage = "Hello world"
+  //   mockFn.mockResolvedValueOnce({ text: mockMessage })
+  //   // axios.get.mockResolvedValueOnce({ text: mockMessage })
+  //   const wrapper = shallowMount(MessageDisplay)
+
+  //   await flushPromises()
+  //   // expect(getMessage).toHaveBeenCalledTimes(1)
+  //   expect(mockFn).toBeCalled()
+  //   expect(getMessage).toHaveBeenCalledTimes(1)
+
+  //   console.log('data: ', wrapper.find('[data-message="message"]').element.textContent)
+  //   expect(
+  //     wrapper.find('[data-message="message"]').element.textContent
+  //   ).toEqual(mockMessage)
+  // })
 })

@@ -9,12 +9,12 @@ We have some condition to test:
 
 describe("AppHeader", () => {
   test("If user not logged in: ", () => {
-    const wrapper = mount(AppHeader)
+    const wrapper = shallowMount(AppHeader)
     expect(wrapper.find("button").isVisible()).toBe(false)
   })
 
   test("If user logged in: ", async () => {
-    const wrapper = mount(AppHeader)
+    const wrapper = shallowMount(AppHeader)
     await wrapper.setData({ loggedIn: true })
     // wrapper.findComponent({ ref: 'loggedIn' }).setValue(true)
 

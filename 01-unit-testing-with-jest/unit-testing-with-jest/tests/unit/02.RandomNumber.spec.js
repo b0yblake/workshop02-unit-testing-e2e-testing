@@ -10,12 +10,12 @@ We have some condition to test:
 
 describe("RandomNumber", () => {
   test("At initial, randomNumber should display 0", () => {
-    const wrapper = mount(RandomNumber)
+    const wrapper = shallowMount(RandomNumber)
     expect(wrapper.html()).toContain("<span>0</span>")
   })
 
   test("When clicked button, randomNumber should change and in range: 1 < randomNumber <= 10", async () => {
-    const wrapper = mount(RandomNumber)
+    const wrapper = shallowMount(RandomNumber)
     wrapper.find(".btn1").trigger("click")
 
     // We need use async to wait the wrapper click button
@@ -26,7 +26,7 @@ describe("RandomNumber", () => {
   })
 
   test("When clicked button 2, randomNumbershould change and in range: 100 < randomNumber <= 200", async () => {
-    const wrapper = mount(RandomNumber, {
+    const wrapper = shallowMount(RandomNumber, {
       propsData: {
         min: 100,
         max: 200,
